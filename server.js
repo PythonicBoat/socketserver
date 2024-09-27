@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-app.use(cors()); 
+app.use(cors({origin: '*'})); 
 app.use(express.json());
 
 io.on('connection', (socket) => {
@@ -24,7 +24,7 @@ app.post('/send-alert', (req, res) => {
     res.status(200).send('Alert sent!');
 });
 
-app.get('/', (res) => {
+app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
 
