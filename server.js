@@ -22,9 +22,9 @@ app.post('/send-alert', (req, res) => {
     res.status(200).send('Alert sent!');
 });
 
-app.get('/', (req, res) => {
+app.get('/', (res) => {
     res.send('Hello, world!');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
