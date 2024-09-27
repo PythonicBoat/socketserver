@@ -23,8 +23,9 @@ io.on("connection", (socket) => {
 });
 
 app.post("/send-alert", (req, res) => {
-  const { message } = req.body.message;
+  const { message } = req.body;
   io.emit("broadcastMessage", message);
+  console.log("Alert : " + message);
   res.status(200).send("Alert sent!");
 });
 
